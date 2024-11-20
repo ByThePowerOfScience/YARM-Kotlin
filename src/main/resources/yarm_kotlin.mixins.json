@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "btpos.mcmods.yarm.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "yarm_kotlin.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
