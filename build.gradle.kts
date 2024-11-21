@@ -12,8 +12,7 @@ buildscript {
 }
 
 plugins {
-	kotlin("jvm") version "[1.8,)"
-	id("eclipse")
+	id("org.jetbrains.kotlin.jvm") version "[2,3)"
 	id("idea")
 	id("net.minecraftforge.gradle") version "[6.0.16,6.2)"
 	id("org.parchmentmc.librarian.forgegradle") version "1.+"
@@ -117,7 +116,7 @@ dependencies {
 	
 	annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 	
-	implementation("thedarkcolour:kotlinforforge:3.12.0")
+	implementation("thedarkcolour:kotlinforforge:4.11.0")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -159,3 +158,9 @@ tasks.named<Jar>("jar").configure {
 tasks.withType<JavaCompile>().configureEach {
 	options.encoding = "UTF-8" // Use the UTF-8 charset for Java compilation
 }
+
+//kotlin {
+//	this.compilerOptions {
+//		this.freeCompilerArgs.addAll("-Xrender-internal-diagnostic-names", "-Xsuppress-warning=OVERRIDE_DEPRECATION")
+//	}
+//}

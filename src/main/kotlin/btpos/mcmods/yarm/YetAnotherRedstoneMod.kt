@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 
 const val MOD_ID = "yarm"
-val LOGGER: Logger = LogManager.getLogger()
+val LOGGER: Logger = LogManager.getLogger(MOD_ID)
 
 fun rl(s: String) = ResourceLocation(MOD_ID, s)
 
