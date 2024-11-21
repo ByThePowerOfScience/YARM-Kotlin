@@ -29,7 +29,9 @@ val SHAPE: VoxelShape = Block.box(0.0, 0.0, 0.0, 16.0, 2.0, 16.0)
 val FACING: DirectionProperty = BlockStateProperties.HORIZONTAL_FACING
 
 val POWERED: BooleanProperty = BlockStateProperties.POWERED
-abstract class AbstractComponentBlock(props: Properties) : Block(props), BlockEntityProvider<AbstractComponentEntity> {
+abstract class AbstractComponentBlock<ENT_TYPE : AbstractComponentEntity>(props: Properties)
+	: Block(props), BlockEntityProvider<ENT_TYPE>
+{
 	override fun canSurvive(pState: BlockState, pLevel: LevelReader, pPos: BlockPos): Boolean {
 		return true
 	}
@@ -62,9 +64,5 @@ abstract class AbstractComponentBlock(props: Properties) : Block(props), BlockEn
 	
 	protected fun getSignalReceivedFromFace(world: Level, ourPos: BlockPos, direction: Direction): Int {
 		return world.getSignal(ourPos.relative(direction), direction)
-	}
-	
-	fun getRelative(state: BlockState, offset: Direction): RelativeDirection {
-		return RelativeDirection.from(state.getValue(FACING), offset)
 	}
 }

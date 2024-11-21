@@ -2,6 +2,7 @@
 
 package btpos.mcmods.yarm.components.gates
 
+import btpos.mcmods.yarm.parts.SidedIOProvider
 import net.minecraft.core.BlockPos
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.world.item.ItemStack
@@ -10,8 +11,9 @@ import net.minecraft.world.level.block.entity.BlockEntityType
 import net.minecraft.world.level.block.state.BlockState
 
 
-abstract class AbstractComponentEntity(type: BlockEntityType<*>, pos: BlockPos, blockState: BlockState) : BlockEntity(type, pos, blockState) {
-	
+abstract class AbstractComponentEntity(type: BlockEntityType<*>, pos: BlockPos, blockState: BlockState)
+	: BlockEntity(type, pos, blockState), SidedIOProvider
+{
 	fun saveNBTToItem(item: ItemStack) {
 		val data = CompoundTag()
 		

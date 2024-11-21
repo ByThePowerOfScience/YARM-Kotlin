@@ -3,6 +3,8 @@
 package btpos.mcmods.yarm.components.gates
 
 import btpos.mcmods.yarm.parts.BlockEntityProvider
+import btpos.mcmods.yarm.parts.SidedIOProvider
+import btpos.mcmods.yarm.parts.SidedIOProviders
 import net.minecraft.core.BlockPos
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.entity.BlockEntityType
@@ -14,6 +16,6 @@ class AndGateBlock(entType: BlockEntityType<AndGateEntity>, props: Properties)
 }
 
 class AndGateEntity(entType: BlockEntityType<AndGateEntity>, pos: BlockPos, state: BlockState)
-	: AbstractComponentEntity(entType, pos, state) {
-
+	: AbstractComponentEntity(entType, pos, state), SidedIOProvider by SidedIOProviders.ThreeInputOneOutput() {
+	
 }
